@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EHB | Official Service Rates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --accent: #00ffcc; --bg: #0a0a0a; --card: #151515; --text: #e0e0e0; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; padding-bottom: 50px; }
+        
+        header { text-align: center; padding: 40px 20px; background: linear-gradient(180deg, #111 0%, var(--bg) 100%); border-bottom: 1px solid #333; }
+        header h1 { color: var(--accent); margin: 0; font-size: 24px; letter-spacing: 2px; }
+        header p { font-size: 12px; opacity: 0.6; margin-top: 10px; }
+
+        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
+        
+        .category-title { color: var(--accent); font-size: 16px; margin: 25px 0 15px 5px; font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        .category-title i { font-size: 14px; }
+
+        .service-card { background: var(--card); border-radius: 12px; padding: 15px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #222; transition: 0.3s; }
+        .service-info b { display: block; font-size: 15px; margin-bottom: 4px; color: #fff; }
+        .service-info span { font-size: 14px; color: var(--accent); font-weight: 600; }
+
+        .order-btn { background: var(--accent); color: #000; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; font-size: 12px; cursor: pointer; text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
+        .order-btn:active { transform: scale(0.95); }
+
+        .note-box { background: rgba(255, 204, 0, 0.1); border: 1px dashed #ffcc00; padding: 15px; border-radius: 10px; margin-top: 30px; font-size: 13px; color: #ffcc00; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EHB SERVICE VAULT</h1>
+        <p>Official Rates & Professional Cyber Security Services</p>
+    </header>
+
+    <div class="container" id="rate-list">
+        </div>
+
+    <script>
+        const services = [
+            { category: "Telegram Rate", icon: "fab fa-telegram", items: [
+                { name: "Scam Removal", price: "17,000/-" },
+                { name: "Custom Bot", price: "3,000/-" },
+                { name: "API Setup", price: "2,500/-" }
+            ]},
+            { category: "Instagram Rate", icon: "fab fa-instagram", items: [
+                { name: "Permanent Remove", price: "37,000/-" },
+                { name: "Suspended Recovery", price: "1,400/-" },
+                { name: "Meta Verify", price: "1,000/-" }
+            ]},
+            { category: "Facebook Rate", icon: "fab fa-facebook", items: [
+                { name: "Locked Recovery", price: "1,500/-" },
+                { name: "Hacked Recovery", price: "18,000/-" },
+                { name: "Imposter (With DOB)", price: "500/-" },
+                { name: "Imposter (Without DOB)", price: "900/-" },
+                { name: "Meta Verify", price: "700/-" }
+            ]},
+            { category: "Gmail & Server", icon: "fas fa-envelope", items: [
+                { name: "Disabled Fix", price: "2,000/-" },
+                { name: "2FA Bypass", price: "2,500/-" },
+                { name: "Server Fix", price: "3,000/-" }
+            ]},
+            { category: "Update's & Method", icon: "fas fa-sync", items: [
+                { name: "Copyright Update", price: "600/-" },
+                { name: "Telegram Banning Method", price: "3,200/-" },
+                { name: "WhatsApp Banning Method", price: "5,700/-" },
+                { name: "Instagram Banning PDF", price: "800/-" }
+            ]},
+            { category: "Imposter Files", icon: "fas fa-folder-open", items: [
+                { name: "Dob File", price: "1,000/-" },
+                { name: "Without Dob File", price: "1,500/-" }
+            ]},
+            { category: "Bot Reports", icon: "fas fa-robot", items: [
+                { name: "Telegram Report Bot", price: "3 Lakh" },
+                { name: "Instagram Report Bot", price: "7 Lakh" },
+                { name: "Facebook Profile/Page Bot", price: "1.3 Million" }
+            ]},
+            { category: "Update Sell", icon: "fas fa-shopping-cart", items: [
+                { name: "Indian Grievance FB", price: "1,500/-" },
+                { name: "Indian Grievance IG", price: "1,500/-" },
+                { name: "Any Other Update", price: "2,000/-" }
+            ]}
+        ];
+
+        const listDiv = document.getElementById('rate-list');
+
+        services.forEach(cat => {
+            let html = `<div class="category-title"><i class="${cat.icon}"></i> ${cat.category}</div>`;
+            cat.items.forEach(item => {
+                html += `
+                <div class="service-card">
+                    <div class="service-info">
+                        <b>${item.name}</b>
+                        <span>${item.price}</span>
+                    </div>
+                    <button class="order-btn" onclick="orderNow('${cat.category}', '${item.name}', '${item.price}')">
+                        <i class="fab fa-whatsapp"></i> Order
+                    </button>
+                </div>`;
+            });
+            listDiv.innerHTML += html;
+        });
+
+        listDiv.innerHTML += `
+            <div class="note-box">
+                <b>⚠️ বিশেষ দ্রষ্টব্য:</b> ইম্পোস্টার ফাইল সেলের রেট ফিক্সড। কোনো প্রকার দরদাম বা বারগেইন করা যাবে না। আমাদের সেবাগুলো দ্রুত এবং বিশ্বস্ত।
+            </div>`;
+
+        function orderNow(cat, name, price) {
+            const phone = "8801816731602";
+            const cleanCat = cat.split(' ')[0].toUpperCase();
+            const message = `SERVICE: ${cleanCat} - ${name}\nPRICE: ${price}`;
+            const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(waLink, '_blank');
+        }
+    </script>
+</body>
+</html>
