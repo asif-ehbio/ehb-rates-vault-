@@ -3,39 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>EHB | Pro Service & Reviews v3.3</title>
+    <title>EHB | Global Service Vault v3.4</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --accent: #00ffcc; --bg: #0a0a0a; --card: #151515; --text: #e0e0e0; }
         body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; padding-bottom: 120px; }
-        
-        /* 📢 English Notice Banner */
-        .notice-banner { background: rgba(255,0,0,0.15); border-bottom: 1px solid #ff3b30; padding: 12px; text-align: center; font-weight: 600; color: #ff3b30; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
-
+        .notice-banner { background: rgba(255,0,0,0.15); border-bottom: 1px solid #ff3b30; padding: 12px; text-align: center; font-weight: 600; color: #ff3b30; font-size: 12px; text-transform: uppercase; }
         header { text-align: center; padding: 35px 20px; background: linear-gradient(180deg, #111 0%, var(--bg) 100%); }
         header h1 { color: var(--accent); margin: 0; font-size: 24px; letter-spacing: 2px; }
-
         .container { padding: 15px; max-width: 600px; margin: 0 auto; }
-        .section-title { color: var(--accent); font-size: 17px; margin: 30px 0 15px 5px; font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 10px; border-left: 3px solid var(--accent); padding-left: 10px; }
-
-        /* 📸 Review Card Styles */
-        .review-card { background: var(--card); border-radius: 15px; overflow: hidden; margin-bottom: 20px; border: 1px solid #222; }
-        .review-img { width: 100%; display: block; border-bottom: 1px solid #222; }
-        .review-caption { padding: 15px; font-size: 14px; color: #bbb; line-height: 1.5; }
-        .review-date { font-size: 11px; color: var(--accent); opacity: 0.7; padding: 0 15px 15px; }
-
-        /* 💰 Service Cards */
+        .section-title { color: var(--accent); font-size: 17px; margin: 30px 0 15px 5px; font-weight: 700; text-transform: uppercase; border-left: 3px solid var(--accent); padding-left: 10px; }
         .service-card { background: var(--card); border-radius: 12px; padding: 18px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #222; }
         .service-info b { display: block; font-size: 16px; color: #fff; margin-bottom: 4px; }
         .service-info span { font-size: 14px; color: var(--accent); font-weight: 700; }
-        
         .order-btn { background: var(--accent); color: #000; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 12px; }
-        
-        /* 🛠️ CEO Admin Panel */
+        .review-card { background: var(--card); border-radius: 15px; overflow: hidden; margin-bottom: 20px; border: 1px solid #222; }
+        .review-img { width: 100%; display: block; border-bottom: 1px solid #222; }
+        .review-caption { padding: 15px; font-size: 14px; color: #bbb; }
         #admin-panel { display: none; background: #111; border: 2px solid var(--accent); padding: 20px; border-radius: 20px; margin-top: 30px; }
         .admin-input { width: 100%; padding: 12px; margin-bottom: 12px; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; }
         .admin-btn { width: 100%; padding: 14px; background: var(--accent); color: #000; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; margin-bottom: 10px; }
-        .admin-trigger { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: var(--accent); color: #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .admin-trigger { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: var(--accent); color: #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; }
     </style>
 </head>
 <body>
@@ -67,26 +55,24 @@
             </div>
 
             <label>নতুন সার্ভিস যোগ করুন:</label>
-            <input type="text" id="cat-input" class="admin-input" placeholder="ক্যাটাগরি (যেমন: FACEBOOK)">
+            <input type="text" id="cat-input" class="admin-input" placeholder="ক্যাটাগরি">
             <input type="text" id="name-input" class="admin-input" placeholder="সার্ভিসের নাম">
             <input type="text" id="price-input" class="admin-input" placeholder="সার্ভিসের দাম">
             <button class="admin-btn" onclick="addService()">সার্ভিস যোগ করুন</button>
 
-            <button class="admin-btn" style="background:#ff3b30; color:#fff; margin-top:20px;" onclick="resetData()">সব ডাটা রিসেট করুন</button>
+            <hr style="border:0.5px solid #333; margin:20px 0;">
+            <p style="font-size:12px; color:#aaa; text-align:center;">সব ফোনে আপডেট দেখাতে নিচের বাটনটি ব্যবহার করুন:</p>
+            <button class="admin-btn" style="background:#007bff; color:#fff;" onclick="exportData()">Export Code for GitHub</button>
+            <button class="admin-btn" style="background:#ff3b30; color:#fff;" onclick="resetData()">সব রিসেট করুন</button>
         </div>
     </div>
 
     <div class="admin-trigger" onclick="toggleAdmin()"><i class="fas fa-user-shield" style="font-size: 22px;"></i></div>
 
     <script>
-        // Full Service List Restore
+        // Updated Default Data from 55580.png
         const defaultData = {
             services: [
-                { cat: "TELEGRAM", name: "Scam Removal", price: "17,000/-" },
-                { cat: "TELEGRAM", name: "Custom Bot", price: "3,000/-" },
-                { cat: "TELEGRAM", name: "API Setup", price: "2,500/-" },
-                { cat: "INSTAGRAM", name: "Permanent Remove", price: "37,000/-" },
-                { cat: "INSTAGRAM", name: "Suspended Recovery", price: "1,400/-" },
                 { cat: "INSTAGRAM", name: "Meta Verify", price: "1,000/-" },
                 { cat: "FACEBOOK", name: "Locked Recovery", price: "1,500/-" },
                 { cat: "FACEBOOK", name: "Hacked Recovery", price: "18,000/-" },
@@ -108,7 +94,7 @@
             reviews: []
         };
 
-        let ehbData = JSON.parse(localStorage.getItem('ehbVaultV33')) || defaultData;
+        let ehbData = JSON.parse(localStorage.getItem('ehbVaultV34')) || defaultData;
 
         function renderSite() {
             const rateList = document.getElementById('rate-list');
@@ -130,13 +116,12 @@
             }
 
             const reviewList = document.getElementById('review-list');
-            reviewList.innerHTML = ehbData.reviews.length ? '' : '<p style="text-align:center; opacity:0.4; font-size:14px;">এখনো কোনো রিভিউ পাবলিশ করা হয়নি।</p>';
+            reviewList.innerHTML = ehbData.reviews.length ? '' : '<p style="text-align:center; opacity:0.4; font-size:14px;">কোনো রিভিউ পাবলিশ করা হয়নি।</p>';
             ehbData.reviews.slice().reverse().forEach(rev => {
                 reviewList.innerHTML += `
                 <div class="review-card">
                     <img src="${rev.img}" class="review-img">
                     <div class="review-caption">${rev.caption}</div>
-                    <div class="review-date">সফল পেমেন্ট প্রুফ - ${rev.date}</div>
                 </div>`;
             });
         }
@@ -146,7 +131,7 @@
                 const p = document.getElementById('admin-panel');
                 p.style.display = p.style.display === 'block' ? 'none' : 'block';
                 window.scrollTo(0, document.body.scrollHeight);
-            } else { alert("এক্সেস ডিনাইড!"); }
+            } else { alert("ভুল পাসওয়ার্ড!"); }
         }
 
         function addService() {
@@ -172,19 +157,32 @@
         }
 
         function saveAndRender() {
-            localStorage.setItem('ehbVaultV33', JSON.stringify(ehbData));
+            localStorage.setItem('ehbVaultV34', JSON.stringify(ehbData));
             renderSite();
-            alert("সফলভাবে আপডেট হয়েছে!");
+            alert("সফলভাবে আপডেট হয়েছে! (শুধুমাত্র এই ফোনে)");
+        }
+
+        // 🔗 Export Tool to Globalize Data
+        function exportData() {
+            let fullCode = document.documentElement.outerHTML;
+            // Injecting local data into the code to make it permanent
+            const dataScript = `<script>const ehbVaultV34 = ${JSON.stringify(ehbData)};<\/script>`;
+            const textArea = document.createElement("textarea");
+            textArea.value = fullCode;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("পুরো সাইটের কোড কপি হয়েছে! এবার টার্মিনাক্সে গিয়ে index.html-এ এটি পেস্ট করে পুশ করুন।");
         }
 
         function order(cat, name, price) {
             window.open(`https://wa.me/8801816731602?text=সার্ভিস: ${cat}\nনাম: ${name}\nদাম: ${price}`, '_blank');
         }
 
-        function resetData() { if(confirm("সব ডাটা কি রিসেট করবেন?")) { localStorage.removeItem('ehbVaultV33'); location.reload(); } }
+        function resetData() { if(confirm("সব রিসেট করবেন?")) { localStorage.removeItem('ehbVaultV34'); location.reload(); } }
 
         renderSite();
     </script>
 </body>
 </html>
-
