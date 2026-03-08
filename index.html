@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>EHB | Complete Service Vault v3.5</title>
+    <title>EHB | CEO Master Vault v3.6</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --accent: #00ffcc; --bg: #0a0a0a; --card: #151515; --text: #e0e0e0; }
         body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; padding-bottom: 120px; }
-        .notice-banner { background: rgba(255,0,0,0.15); border-bottom: 1px solid #ff3b30; padding: 12px; text-align: center; font-weight: 600; color: #ff3b30; font-size: 12px; text-transform: uppercase; }
+        .notice-banner { background: rgba(255,0,0,0.15); border-bottom: 1px solid #ff3b30; padding: 12px; text-align: center; font-weight: 600; color: #ff3b30; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
         header { text-align: center; padding: 35px 20px; background: linear-gradient(180deg, #111 0%, var(--bg) 100%); }
         header h1 { color: var(--accent); margin: 0; font-size: 24px; letter-spacing: 2px; }
         .container { padding: 15px; max-width: 600px; margin: 0 auto; }
@@ -17,13 +17,10 @@
         .service-info b { display: block; font-size: 16px; color: #fff; margin-bottom: 4px; }
         .service-info span { font-size: 14px; color: var(--accent); font-weight: 700; }
         .order-btn { background: var(--accent); color: #000; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 12px; }
-        .review-card { background: var(--card); border-radius: 15px; overflow: hidden; margin-bottom: 20px; border: 1px solid #222; }
-        .review-img { width: 100%; display: block; border-bottom: 1px solid #222; }
-        .review-caption { padding: 15px; font-size: 14px; color: #bbb; }
-        #admin-panel { display: none; background: #111; border: 2px solid var(--accent); padding: 20px; border-radius: 20px; margin-top: 30px; }
-        .admin-input { width: 100%; padding: 12px; margin-bottom: 12px; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; }
-        .admin-btn { width: 100%; padding: 14px; background: var(--accent); color: #000; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; margin-bottom: 10px; }
-        .admin-trigger { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: var(--accent); color: #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; }
+        #admin-panel { display: none; background: #111; border: 2.5px solid var(--accent); padding: 25px; border-radius: 20px; margin-top: 30px; box-shadow: 0 0 30px rgba(0,255,204,0.1); }
+        .admin-input { width: 100%; padding: 12px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; outline: none; }
+        .admin-btn { width: 100%; padding: 14px; background: var(--accent); color: #000; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; margin-bottom: 12px; text-transform: uppercase; }
+        .admin-trigger { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--accent); color: #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
     </style>
 </head>
 <body>
@@ -34,38 +31,46 @@
 
     <header>
         <h1>EHB SERVICE VAULT</h1>
-        <p style="font-size:12px; opacity:0.6;">Cyber Security & Trusted Media Recovery</p>
+        <p style="font-size:12px; opacity:0.6;">Professional Security & Recovery Hub</p>
     </header>
 
     <div class="container">
         <div class="section-title"><i class="fas fa-tags"></i> সার্ভিস রেট তালিকা</div>
         <div id="rate-list"></div>
-
-        <div class="section-title"><i class="fas fa-star"></i> কাস্টমার রিভিউ</div>
-        <div id="review-list"></div>
         
         <div id="admin-panel">
-            <h3 style="color:var(--accent); text-align:center;">CEO অ্যাডমিন ড্যাশবোর্ড</h3>
-            <label>রিভিউ আপলোড (ছবি):</label>
-            <input type="file" id="rev-img" class="admin-input" accept="image/*">
-            <textarea id="rev-cap" class="admin-input" placeholder="ক্যাপশন..." rows="2"></textarea>
-            <button class="admin-btn" onclick="addReview()">পাবলিশ রিভিউ</button>
+            <h3 style="color:var(--accent); text-align:center; text-transform:uppercase; margin-bottom:20px;">CEO অ্যাডমিন প্যানেল</h3>
+            
+            <label style="font-size:13px; color:var(--accent);">সার্ভিস ক্যাটাগরি (Ex: FACEBOOK):</label>
+            <input type="text" id="cat-input" class="admin-input">
+            
+            <label style="font-size:13px; color:var(--accent);">সার্ভিসের নাম:</label>
+            <input type="text" id="name-input" class="admin-input">
+            
+            <label style="font-size:13px; color:var(--accent);">সার্ভিসের দাম:</label>
+            <input type="text" id="price-input" class="admin-input">
+            
+            <button class="admin-btn" onclick="addService()">সার্ভিস যোগ করুন</button>
             <hr style="border:0.5px solid #333; margin:20px 0;">
-            <button class="admin-btn" style="background:#ff3b30; color:#fff;" onclick="resetData()">সব রিসেট করুন</button>
+            
+            <p style="font-size:12px; color:#aaa; text-align:center;">গিটহাবে পুশ করার জন্য কোড কপি করুন:</p>
+            <button class="admin-btn" style="background:#007bff; color:#fff;" onclick="copyUpdatedScript()">Copy Updated Code</button>
+            
+            <button class="admin-btn" style="background:#ff3b30; color:#fff;" onclick="resetData()">রিসেট সব ডাটা</button>
         </div>
     </div>
 
-    <div class="admin-trigger" onclick="toggleAdmin()"><i class="fas fa-user-shield" style="font-size: 22px;"></i></div>
+    <div class="admin-trigger" onclick="toggleAdmin()"><i class="fas fa-user-shield" style="font-size: 24px;"></i></div>
 
-    <script>
-        // 📊 Full Restored Data from Rate Chart & 55580.png
+    <script id="main-script">
+        // 📊 Full Restored Data
         const defaultData = {
             services: [
                 { cat: "TELEGRAM", name: "Scam Removal", price: "17,000/-" },
                 { cat: "TELEGRAM", name: "Custom Bot", price: "3,000/-" },
                 { cat: "TELEGRAM", name: "API Setup", price: "2,500/-" },
                 { cat: "INSTAGRAM", name: "Permanent Remove", price: "37,000/-" },
-                { cat: "INSTAGRAM", name: "Suspended Fix", price: "1,400/-" },
+                { cat: "INSTAGRAM", name: "Suspended Recovery", price: "1,400/-" },
                 { cat: "INSTAGRAM", name: "Meta Verify", price: "1,000/-" },
                 { cat: "FACEBOOK", name: "Locked Recovery", price: "1,500/-" },
                 { cat: "FACEBOOK", name: "Hacked Recovery", price: "18,000/-" },
@@ -87,11 +92,10 @@
                 { cat: "UPDATE SELL", name: "Indian Grievance FB", price: "1,500/-" },
                 { cat: "UPDATE SELL", name: "Indian Grievance IG", price: "1,500/-" },
                 { cat: "UPDATE SELL", name: "Any Other Update", price: "2,000/-" }
-            ],
-            reviews: []
+            ]
         };
 
-        let ehbData = JSON.parse(localStorage.getItem('ehbVaultV35')) || defaultData;
+        let ehbData = JSON.parse(localStorage.getItem('ehbVaultV36')) || defaultData;
 
         function renderSite() {
             const rateList = document.getElementById('rate-list');
@@ -102,7 +106,7 @@
                 grouped[s.cat].push(s);
             });
             for(let cat in grouped) {
-                rateList.innerHTML += `<div style="font-size:13px; color:var(--accent); margin:18px 0 10px; font-weight:bold; letter-spacing:1px;">${cat} RATE</div>`;
+                rateList.innerHTML += `<div style="font-size:13px; color:var(--accent); margin:20px 0 10px; font-weight:bold; letter-spacing:1px;">${cat} RATE</div>`;
                 grouped[cat].forEach(item => {
                     rateList.innerHTML += `
                     <div class="service-card">
@@ -111,47 +115,53 @@
                     </div>`;
                 });
             }
-
-            const reviewList = document.getElementById('review-list');
-            reviewList.innerHTML = ehbData.reviews.length ? '' : '<p style="text-align:center; opacity:0.4; font-size:14px;">কোনো রিভিউ নেই।</p>';
-            ehbData.reviews.slice().reverse().forEach(rev => {
-                reviewList.innerHTML += `
-                <div class="review-card">
-                    <img src="${rev.img}" class="review-img">
-                    <div class="review-caption">${rev.caption}</div>
-                </div>`;
-            });
         }
 
         function toggleAdmin() {
-            if(prompt("CEO পাসওয়ার্ড:") === "asif2008") {
+            if(prompt("CEO এক্সেস কোড দিন:") === "asif2008") {
                 const p = document.getElementById('admin-panel');
                 p.style.display = p.style.display === 'block' ? 'none' : 'block';
                 window.scrollTo(0, document.body.scrollHeight);
-            } else { alert("ACCESS DENIED!"); }
+            } else { alert("এক্সেস ডিনাইড!"); }
         }
 
-        function addReview() {
-            const file = document.getElementById('rev-img').files[0];
-            const caption = document.getElementById('rev-cap').value;
-            if(!file || !caption) return alert("ছবি এবং ক্যাপশন দিন!");
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                ehbData.reviews.push({ img: e.target.result, caption, date: new Date().toLocaleDateString('en-GB') });
-                localStorage.setItem('ehbVaultV35', JSON.stringify(ehbData));
+        function addService() {
+            const cat = document.getElementById('cat-input').value.toUpperCase();
+            const name = document.getElementById('name-input').value;
+            const price = document.getElementById('price-input').value;
+            if(cat && name && price) {
+                ehbData.services.push({ cat, name, price });
+                localStorage.setItem('ehbVaultV36', JSON.stringify(ehbData));
                 renderSite();
-                alert("রিভিউ সফলভাবে যোগ হয়েছে!");
-            };
-            reader.readAsDataURL(file);
+                alert("সার্ভিস যোগ করা হয়েছে! এটি এখন এই ফোনে কার্যকর।");
+            } else { alert("সবগুলো তথ্য সঠিকভাবে পূরণ করুন!"); }
+        }
+
+        // 🔗 Dynamic Script Copy System
+        function copyUpdatedScript() {
+            let currentHTML = document.documentElement.outerHTML;
+            // Injecting updated data into the script section for global sync
+            const dataToInject = `const defaultData = ${JSON.stringify(ehbData)};`;
+            const pattern = /const defaultData = \{[\s\S]*?\};/;
+            const updatedHTML = currentHTML.replace(pattern, dataToInject);
+
+            const textArea = document.createElement("textarea");
+            textArea.value = updatedHTML;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("আপডেট করা সম্পূর্ণ কোড কপি হয়েছে! এবার টার্মিনাক্সে গিয়ে index.html-এ এটি পেস্ট করে পুশ করুন।");
         }
 
         function order(cat, name, price) {
-            window.open(`https://wa.me/8801816731602?text=SERVICE: ${cat}\nNAME: ${name}\nPRICE: ${price}`, '_blank');
+            window.open(`https://wa.me/8801816731602?text=সার্ভিস: ${cat}\nনাম: ${name}\nদাম: ${price}`, '_blank');
         }
 
-        function resetData() { if(confirm("সব রিসেট করবেন?")) { localStorage.removeItem('ehbVaultV35'); location.reload(); } }
+        function resetData() { if(confirm("সব ডাটা রিসেট করবেন?")) { localStorage.removeItem('ehbVaultV36'); location.reload(); } }
 
         renderSite();
     </script>
 </body>
 </html>
+
