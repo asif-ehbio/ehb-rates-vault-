@@ -3,110 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>EHB | Official Service Vault</title>
+    <title>ASIF SHOP | Pro Service Vault v4.5</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root { --accent: #00ffcc; --bg: #05070a; --card: #12151c; --text: #d1d5db; --font-bn: 'Hind Siliguri', sans-serif; --font-en: 'Orbitron', sans-serif; }
-        body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-bn); padding-bottom: 50px; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-bn); padding-bottom: 120px; }
         
-        /* 🎨 Official EHB Header with Your Logo */
+        /* 💡 Glowing & Lighting Header */
         header { text-align: center; padding: 60px 20px; background: radial-gradient(circle at top, #002b24 0%, var(--bg) 90%); border-bottom: 1px solid #1f2937; }
-        .logo-box { width: 110px; height: 110px; margin: 0 auto 20px; border: 2.5px solid var(--accent); border-radius: 50%; padding: 5px; box-shadow: 0 0 30px rgba(0,255,204,0.4); overflow: hidden; }
-        .logo-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        header h1 { font-family: var(--font-en); color: var(--accent); font-size: 26px; margin: 0; letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 0 15px rgba(0,255,204,0.3); }
-        header p { font-size: 13px; opacity: 0.7; margin-top: 8px; letter-spacing: 1px; }
+        header h1 { font-family: var(--font-en); color: var(--accent); font-size: 32px; margin: 0; text-transform: uppercase; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); }
+        header p { font-size: 13px; opacity: 0.7; margin-top: 10px; letter-spacing: 1px; }
 
         .container { padding: 15px; max-width: 600px; margin: 0 auto; }
-        
-        /* 💠 3x2 Service Grid (Exact Replica of 55732.png) */
-        .section-title { font-weight: 700; margin: 30px 0 15px; padding-left: 5px; font-size: 15px; color: var(--accent); text-transform: uppercase; }
-        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 40px; }
+        .section-title { font-weight: 700; margin: 30px 0 15px; padding-left: 5px; font-size: 16px; color: var(--accent); text-transform: uppercase; }
+
+        /* 💠 Recovery Service Grid */
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 25px 0; }
         .service-card { background: var(--card); border: 1px solid #30363d; border-radius: 15px; padding: 20px 5px; text-align: center; cursor: pointer; transition: 0.3s; }
         .service-card:active { transform: scale(0.95); background: #1c2128; border-color: var(--accent); }
         .service-card i { font-size: 32px; margin-bottom: 12px; display: block; }
         .service-card b { font-size: 10px; color: #fff; display: block; text-transform: uppercase; line-height: 1.3; }
 
-        /* 💰 Detailed Price List */
-        .rate-box { background: var(--card); border-radius: 15px; padding: 18px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #2d333b; }
+        /* 📊 Detailed Price Buttons (Icon+Text) */
+        .rate-btn { background: var(--card); border-radius: 12px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; border: 1px solid #2d333b; cursor: pointer; text-decoration: none; color: inherit; transition: 0.3s; }
+        .rate-btn:hover { border-color: var(--accent); background: rgba(0,255,204,0.03); }
+        .rate-btn i { font-size: 24px; color: var(--accent); width: 30px; text-align: center; }
         .rate-info b { display: block; font-size: 16px; color: #fff; margin-bottom: 4px; }
         .rate-info span { font-size: 14px; color: var(--accent); font-weight: 800; }
-        .order-btn { background: var(--accent); color: #000; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; font-size: 12px; text-transform: uppercase; cursor: pointer; }
+        .order-tag { margin-left: auto; font-size: 10px; background: #222; padding: 5px 10px; border-radius: 6px; text-transform: uppercase; }
 
-        /* 🛠️ CEO Admin Tool */
-        .admin-trigger { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--accent); color: #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
-        
         footer { text-align: center; padding: 40px 20px; font-size: 12px; opacity: 0.4; border-top: 1px solid #1f2937; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-box">
-            <img src="logo.jpg" alt="EHB Official Logo">
-        </div>
-        <h1>EHB RATES VAULT</h1>
+        <h1>ASIF SHOP</h1>
         <p>Cyber Security & Media Recovery Hub</p>
     </header>
 
     <div class="container">
-        <div class="section-title">📌 দ্রুত সেবা নির্বাচন</div>
+        <div class="section-title">📌 দ্রুত সেবা নির্বাচন করুন</div>
         <div class="service-grid">
-            <div class="service-card" onclick="order('Facebook')"><i class="fab fa-facebook" style="color:#1877f2;"></i><b>Facebook<br>Recovery</b></div>
-            <div class="service-card" onclick="order('Gmail')"><i class="fab fa-google" style="color:#ea4335;"></i><b>Gmail<br>Recovery</b></div>
-            <div class="service-card" onclick="order('IMO')"><i class="fas fa-comment-dots" style="color:#2196f3;"></i><b>IMO<br>Recovery</b></div>
-            <div class="service-card" onclick="order('WhatsApp')"><i class="fab fa-whatsapp" style="color:#25d366;"></i><b>WhatsApp<br>Recovery</b></div>
-            <div class="service-card" onclick="order('Instagram')"><i class="fab fa-instagram" style="color:#e4405f;"></i><b>Instagram<br>Recovery</b></div>
-            <div class="service-card" onclick="order('TikTok')"><i class="fab fa-tiktok" style="color:#fff;"></i><b>TikTok<br>Recovery</b></div>
+            <div class="service-card" onclick="order('Facebook Recovery')"><i class="fab fa-facebook" style="color:#1877f2;"></i><b>Facebook<br>Recovery</b></div>
+            <div class="service-card" onclick="order('Gmail Recovery')"><i class="fab fa-google" style="color:#ea4335;"></i><b>Gmail<br>Recovery</b></div>
+            <div class="service-card" onclick="order('WhatsApp Recovery')"><i class="fab fa-whatsapp" style="color:#25d366;"></i><b>WhatsApp<br>Recovery</b></div>
         </div>
 
-        <div class="section-title">📊 বিস্তারিত সার্ভিস রেট</div>
-        <div id="rate-list">
-            </div>
+        <div class="section-title">📊 সম্পূর্ণ সার্ভিস রেট তালিকা</div>
+        
+        <div class="rate-btn" onclick="order('Telegram Scam Removal')"><i class="fab fa-telegram"></i><div class="rate-info"><b>Telegram Scam Removal</b><span>১৭,০০০/-</span></div><span class="order-tag">অর্ডার</span></div>
+        <div class="rate-btn" onclick="order('Instagram Suspended Fix')"><i class="fab fa-instagram"></i><div class="rate-info"><b>Instagram Suspended Fix</b><span>১,৪০০/-</span></div><span class="order-tag">অর্ডার</span></div>
+        <div class="rate-btn" onclick="order('Facebook Locked Recovery')"><i class="fab fa-facebook"></i><div class="rate-info"><b>Facebook Locked Recovery</b><span>১,৫০০/-</span></div><span class="order-tag">অর্ডার</span></div>
+        <div class="rate-btn" onclick="order('Gmail Disabled Fix')"><i class="fab fa-google"></i><div class="rate-info"><b>Gmail Disabled Fix</b><span>২,০০০/-</span></div><span class="order-tag">অর্ডার</span></div>
+        <div class="rate-btn" onclick="order('Telegram Banning (PDF)')"><i class="fas fa-file-pdf"></i><div class="rate-info"><b>Telegram Banning</b><span>৩,২০০/-</span></div><span class="order-tag">অর্ডার</span></div>
+        <div class="rate-btn" onclick="order('Dob File')"><i class="fas fa-id-card"></i><div class="rate-info"><b>Dob File</b><span>১,০০০/-</span></div><span class="order-tag">অর্ডার</span></div>
+        <div class="rate-btn" onclick="order('FB Bot (1.3M)')"><i class="fas fa-robot"></i><div class="rate-info"><b>FB Bot (1.3M)</b><span>1.3 Million</span></div><span class="order-tag">অর্ডার</span></div>
     </div>
 
-    <div class="admin-trigger" onclick="toggleAdmin()"><i class="fas fa-user-shield"></i></div>
-
     <footer style="font-family: var(--font-en);">
-        <i class="fas fa-shield-alt"></i> WE DO NOT CONDUCT ADMIN DEALS.<br>
-        &copy; 2026 EHB TECHNOLOGY | ALL RIGHTS RESERVED
+        <i class="fas fa-shield-alt"></i> WE DO NOT ASK FOR ADMIN DEALS.<br>
+        &copy; 2026 ASIF SHOP | POWERED BY NOBAB SIR. ALL RIGHTS RESERVED.
     </footer>
 
     <script>
-        // আপনার সম্পূর্ণ সার্ভিস লিস্ট
-        const rates = [
-            { name: "Telegram Scam Removal", price: "17,000/-" },
-            { name: "Instagram Suspended Fix", price: "1,400/-" },
-            { name: "Facebook Locked Recovery", price: "1,500/-" },
-            { name: "Facebook Hacked Recovery", price: "18,000/-" },
-            { name: "Gmail Disabled Fix", price: "2,000/-" },
-            { name: "Telegram Banning", price: "3,200/-" },
-            { name: "WhatsApp Banning", price: "5,700/-" }
-        ];
-
-        function renderRates() {
-            const list = document.getElementById('rate-list');
-            list.innerHTML = rates.map(r => `
-                <div class="rate-box">
-                    <div class="rate-info"><b>${r.name}</b><span>${r.price}</span></div>
-                    <button class="order-btn" onclick="order('${r.name}')">অর্ডার</button>
-                </div>
-            `).join('');
-        }
-
-        function toggleAdmin() {
-            if(prompt("CEO এক্সেস কোড:") === "asif2008") {
-                alert("স্বাগতম আসিফ চৌধুরী! EHB ভল্ট ড্যাশবোর্ড আপনার নিয়ন্ত্রণে।");
-            }
-        }
-
         function order(service) {
             const phone = "8801816731602"; // আপনার নম্বর
-            const msg = `আসসালামু আলাইকুম আসিফ ভাই,\nআমি আপনার EHB ভল্ট থেকে "${service}" সার্ভিসটি নিতে চাই। দয়া করে প্রসেসটি জানান।`;
+            const msg = `আসসালামু আলাইকুম আসিফ ভাই,\nআমি আপনার ASIF SHOP থেকে "${service}" সার্ভিসটি নিতে চাই। দয়া করে প্রসেসটি জানান।`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
-
-        renderRates();
     </script>
 </body>
 </html>
