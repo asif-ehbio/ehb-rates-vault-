@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ASIF SHOP | Circle Off & Add Service System v6.0</title>
+    <title>ASIF SHOP | Complete Service Vault v6.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root { --accent: #00ffcc; --bg: #05070a; --card: #12151c; --text: #d1d5db; --font-bn: 'Hind Siliguri', sans-serif; --font-en: 'Orbitron', sans-serif; }
         body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-bn); padding-bottom: 120px; }
         
-        /* 📢 Glowing ASIF SHOP Header (Circle Logo Removed) */
+        /* 📢 Glowing ASIF SHOP Header (Circle Removed) */
         header { text-align: center; padding: 60px 20px; background: radial-gradient(circle at top, #002b24 0%, var(--bg) 90%); border-bottom: 1px solid #1f2937; }
         header h1 { font-family: var(--font-en); color: var(--accent); font-size: 32px; margin: 0; text-transform: uppercase; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); }
         header p { font-size: 13px; opacity: 0.7; margin-top: 10px; letter-spacing: 1px; }
@@ -20,34 +20,28 @@
 
         /* 💠 Quick Service Grid */
         .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 25px 0; }
-        .service-card { background: var(--card); border: 1px solid #30363d; border-radius: 15px; padding: 20px 5px; text-align: center; cursor: pointer; transition: 0.3s; }
-        .service-card:active { transform: scale(0.95); background: #1c2128; border-color: var(--accent); }
-        .service-card i { font-size: 32px; margin-bottom: 12px; display: block; }
+        .service-card { background: var(--card); border: 1px solid #30363d; border-radius: 15px; padding: 18px 5px; text-align: center; cursor: pointer; transition: 0.3s; }
+        .service-card i { font-size: 28px; margin-bottom: 10px; display: block; }
         .service-card b { font-size: 10px; color: #fff; display: block; text-transform: uppercase; line-height: 1.3; }
 
-        /* 📊 List Items */
+        /* 📊 List Item Style */
         .rate-row { background: var(--card); border-radius: 15px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 15px; border: 1px solid #2d333b; }
         .rate-row i { font-size: 22px; color: var(--accent); width: 30px; text-align: center; }
         .rate-info b { display: block; font-size: 15px; color: #fff; margin-bottom: 2px; }
         .rate-info span { font-size: 13px; color: var(--accent); font-weight: 800; }
         .order-btn { margin-left: auto; background: var(--accent); color: #000; border: none; padding: 8px 12px; border-radius: 8px; font-weight: 800; font-size: 11px; cursor: pointer; }
 
-        /* 📞 Updated Contact Support */
+        /* 📞 Contact Support */
         .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
         .contact-btn { background: #fff; color: #000; padding: 12px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
-        /* 🛠️ CEO Master Admin Panel with Add System */
-        #admin-panel { display: none; background: #080808; border-top: 3px solid var(--accent); padding: 20px; position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 2000; border-radius: 25px 25px 0 0; max-height: 80vh; overflow-y: auto; }
+        /* 🛠️ CEO Master Admin Panel */
+        #admin-panel { display: none; background: #080808; border-top: 3px solid var(--accent); padding: 20px; position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 2000; border-radius: 25px 25px 0 0; max-height: 85vh; overflow-y: auto; }
         .admin-input { width: 100%; padding: 12px; margin-bottom: 10px; background: #111; border: 1px solid #333; color: #fff; border-radius: 8px; font-size: 13px; box-sizing: border-box; }
         .admin-btn { width: 100%; padding: 14px; background: var(--accent); color: #000; border: none; border-radius: 10px; font-weight: 800; margin-bottom: 10px; cursor: pointer; text-transform: uppercase; font-size: 13px; }
         
-        /* New Add Service Section within Admin */
-        #add-service-section { margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 15px; }
-        #add-service-section p { font-size: 11px; color: #888; margin-bottom: 10px; }
-
-        /* Price Editor List */
         .price-edit-row { display: flex; justify-content: space-between; align-items: center; background: #111; padding: 8px 12px; margin-bottom: 5px; border-radius: 6px; font-size: 12px; }
-        .price-edit-row input { width: 80px; background: #000; border: 1px solid #444; color: var(--accent); text-align: center; padding: 5px; border-radius: 4px; }
+        .price-edit-row input { width: 90px; background: #000; border: 1px solid #444; color: var(--accent); text-align: center; padding: 5px; border-radius: 4px; }
 
         .admin-trigger { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--accent); color: #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
 
@@ -62,7 +56,7 @@
     </header>
 
     <div class="container">
-        <div class="section-title"><i class="fas fa-bolt"></i> দ্রুত সেবা নির্বাচন করুন</div>
+        <div class="section-title"><i class="fas fa-bolt"></i> দ্রুত সেবা নির্বাচন</div>
         <div class="service-grid">
             <div class="service-card" onclick="order('Facebook Recovery')"><i class="fab fa-facebook" style="color:#1877f2;"></i><b>Facebook<br>Recovery</b></div>
             <div class="service-card" onclick="order('Gmail Recovery')"><i class="fab fa-google" style="color:#ea4335;"></i><b>Gmail<br>Recovery</b></div>
@@ -71,7 +65,7 @@
 
         <div id="full-list"></div>
 
-        <div class="section-title"><i class="fas fa-headset"></i> সরাসরি যোগাযোগ করুন</div>
+        <div class="section-title"><i class="fas fa-headset"></i> সরাসরি যোগাযোগ</div>
         <div class="contact-box">
             <a href="https://wa.me/8801816731602" class="contact-btn" style="background:#25d366; color:#fff;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             <a href="https://www.facebook.com/share/1auxodR9MK/" class="contact-btn" style="background:#1877f2; color:#fff;"><i class="fab fa-facebook"></i> Facebook</a>
@@ -83,18 +77,17 @@
     <div id="admin-panel">
         <h3 style="color:var(--accent); text-align:center; margin-bottom:15px; font-family:var(--font-en);">CEO MASTER ADMIN</h3>
         
-        <div id="add-service-section">
-            <p>নতুন সার্ভিস যোগ করুন:</p>
-            <input type="text" id="new-cat-name" class="admin-input" placeholder="ক্যাটাগরি নাম (Ex: Facebook Rate)">
-            <input type="text" id="new-service-name" class="admin-input" placeholder="সার্ভিসের নাম (Ex: Imposter DOB)">
-            <input type="text" id="new-service-price" class="admin-input" placeholder="দাম (Ex: ১৮,০০০/-)">
-            <button class="admin-btn" onclick="addNewService()">যোগ করুন</button>
+        <div style="border-bottom: 1px solid #222; padding-bottom: 15px; margin-bottom: 15px;">
+            <p style="font-size: 11px; color: #888;">নতুন সার্ভিস যোগ করুন:</p>
+            <input type="text" id="new-cat-name" class="admin-input" placeholder="ক্যাটাগরি (Ex: Facebook Rate)">
+            <input type="text" id="new-service-name" class="admin-input" placeholder="সার্ভিসের নাম">
+            <input type="text" id="new-service-price" class="admin-input" placeholder="দাম">
+            <button class="admin-btn" onclick="addNewService()">সার্ভিস যোগ করুন</button>
         </div>
 
-        <div id="price-editor-list" style="margin-bottom:20px;">
-            </div>
+        <div id="price-editor-list"></div>
 
-        <button class="admin-btn" style="background:#007bff; color:#fff;" onclick="copyUpdatedScript()">কোড কপি করুন (Termux Update)</button>
+        <button class="admin-btn" style="background:#007bff; color:#fff; margin-top: 20px;" onclick="copyUpdatedScript()">কোড কপি করুন (Termux Update)</button>
         <button class="admin-btn" style="background:none; border:1px solid #444; color:#666;" onclick="toggleAdmin()">প্যানেল বন্ধ করুন</button>
     </div>
 
@@ -102,11 +95,11 @@
 
     <footer>
         <i class="fas fa-shield-halved"></i> WE DO NOT ASK FOR ADMIN DEALS.<br>
-        &copy; 2026 ASIF SHOP | Powered by Asif Chowdhury. ALL RIGHTS RESERVED.
+        &copy; 2026 ASIF SHOP | Powered by Asif Chowdhury.
     </footer>
 
     <script id="data-script">
-        // 📊 Persistence Data
+        // 📊 Persistence Data Restore
         let serviceGroups = [
             { cat: "✈️ Telegram Rate", items: [
                 { icon: "fab fa-telegram", name: "Scam Removal", price: "17,000/-" },
@@ -115,18 +108,40 @@
             ]},
             { cat: "🔸 Instagram Rate", items: [
                 { icon: "fab fa-instagram", name: "Permanent Remove", price: "37,000/-" },
-                { icon: "fas fa-user-slash", name: "Suspended Fix", price: "1,400/-" },
+                { icon: "fas fa-user-slash", name: "Suspended", price: "1,400/-" },
                 { icon: "fas fa-check-circle", name: "Meta Verify", price: "1,000/-" }
             ]},
             { cat: "🔹 Facebook Rate", items: [
                 { icon: "fab fa-facebook", name: "Locked Recovery", price: "1,500/-" },
                 { icon: "fas fa-user-lock", name: "Hacked Recovery", price: "18,000/-" },
-                { icon: "fas fa-user-secret", name: "Imposter", price: "900/-" }
+                { icon: "fas fa-user-tag", name: "Imposter (DOB)", price: "500/-" },
+                { icon: "fas fa-user-secret", name: "Imposter (Without)", price: "900/-" },
+                { icon: "fas fa-shield-check", name: "Meta Verify", price: "700/-" }
             ]},
             { cat: "📧 Gmail & Server", items: [
                 { icon: "fab fa-google", name: "Disabled Fix", price: "2,000/-" },
                 { icon: "fas fa-key", name: "2FA Bypass", price: "2,500/-" },
                 { icon: "fas fa-server", name: "Server Fix", price: "3,000/-" }
+            ]},
+            { cat: "⚖️ Updates & Methods", items: [
+                { icon: "fas fa-copyright", name: "Copyright Update", price: "600/-" },
+                { icon: "fas fa-ban", name: "Telegram Banning", price: "3,200/-" },
+                { icon: "fab fa-whatsapp", name: "WhatsApp Banning", price: "5,700/-" },
+                { icon: "fas fa-file-pdf", name: "Instagram Banning PDF", price: "800/-" }
+            ]},
+            { cat: "📂 Imposter Files", items: [
+                { icon: "fas fa-file-invoice", name: "Dob File", price: "1,000/-" },
+                { icon: "fas fa-file-excel", name: "Without Dob", price: "1,500/-" }
+            ]},
+            { cat: "🤖 Bot Reports", items: [
+                { icon: "fas fa-robot", name: "Telegram (3L)", price: "3 Lakhs" },
+                { icon: "fas fa-robot", name: "Instagram (7L)", price: "7 Lakhs" },
+                { icon: "fas fa-users-gear", name: "FB Bot (1.3M)", price: "1.3 Million" }
+            ]},
+            { cat: "🚀 Update Sell", items: [
+                { icon: "fas fa-globe-asia", name: "Griverence Facebook", price: "1,500/-" },
+                { icon: "fas fa-globe-americas", name: "Griverence Instagram", price: "1,500/-" },
+                { icon: "fas fa-bolt", name: "Any Update", price: "2,000/-" }
             ]}
         ];
 
@@ -152,54 +167,32 @@
             }
         }
 
-        // 🛠️ Dynamic Service Adder
         function addNewService() {
-            const catName = document.getElementById('new-cat-name').value;
-            const sName = document.getElementById('new-service-name').value;
-            const sPrice = document.getElementById('new-service-price').value;
+            const cat = document.getElementById('new-cat-name').value;
+            const name = document.getElementById('new-service-name').value;
+            const price = document.getElementById('new-service-price').value;
+            if(!cat || !name || !price) return;
 
-            if(!catName || !sName || !sPrice) { alert("সব তথ্য দিন!"); return; }
-
-            // ক্যাটাগরি অনুযায়ী আইকন সেট করার লজিক
-            const getIcon = (cat) => {
-                if(cat.toLowerCase().includes('facebook')) return 'fab fa-facebook';
-                if(cat.toLowerCase().includes('instagram')) return 'fab fa-instagram';
-                if(cat.toLowerCase().includes('gmail')) return 'fab fa-google';
-                if(cat.toLowerCase().includes('telegram')) return 'fab fa-telegram';
-                if(cat.toLowerCase().includes('server')) return 'fas fa-server';
-                return 'fas fa-shield-halved'; // Default icon
+            const iconMap = (c) => {
+                if(c.includes('Facebook')) return 'fab fa-facebook';
+                if(c.includes('Instagram')) return 'fab fa-instagram';
+                if(c.includes('Telegram')) return 'fab fa-telegram';
+                if(c.includes('Gmail')) return 'fab fa-google';
+                return 'fas fa-shield-halved';
             };
 
-            const newItem = {
-                icon: getIcon(catName),
-                name: sName,
-                price: sPrice
-            };
+            let gIdx = serviceGroups.findIndex(g => g.cat === cat);
+            const newItem = { icon: iconMap(cat), name, price };
+            if(gIdx !== -1) serviceGroups[gIdx].items.push(newItem);
+            else serviceGroups.push({ cat, items: [newItem] });
 
-            // ক্যাটাগরি অলরেডি আছে কি না চেক করুন
-            let groupIndex = serviceGroups.findIndex(g => g.cat === catName);
-            
-            if(groupIndex !== -1) {
-                // পুরানো ক্যাটাগরিতে যোগ করুন
-                serviceGroups[groupIndex].items.push(newItem);
-            } else {
-                // নতুন ক্যাটাগরি তৈরি করুন
-                serviceGroups.push({ cat: catName, items: [newItem] });
-            }
-
-            // ইনপুট ক্লিন করুন
-            document.getElementById('new-cat-name').value = '';
-            document.getElementById('new-service-name').value = '';
-            document.getElementById('new-service-price').value = '';
-
-            renderSite();
-            loadPriceEditor(); // আপডেট লিস্ট লোড করুন
-            alert("সার্ভিস যোগ হয়েছে! Termux Update বাটনে ক্লিক করে কোড কপি করুন।");
+            renderSite(); loadPriceEditor();
+            alert("সার্ভিস যোগ হয়েছে! কোড কপি করুন।");
         }
 
         function loadPriceEditor() {
             const editorList = document.getElementById('price-editor-list');
-            let html = '<p style="font-size:11px; color:#666; margin-bottom:10px;">বিদ্যমান দাম আপডেট করুন:</p>';
+            let html = '<p style="font-size:11px; color:#666; margin-bottom:10px;">দাম পরিবর্তন করুন:</p>';
             serviceGroups.forEach((group, gIdx) => {
                 group.items.forEach((item, iIdx) => {
                     html += `
@@ -217,24 +210,16 @@
             renderSite();
         }
 
-        // 🔗 Global Sync Copy Tool (Now handles new items)
         function copyUpdatedScript() {
             let fullHTML = document.documentElement.outerHTML;
-            // JSON-এ কনভার্ট করে ইনজেক্ট করার জন্য ফরম্যাট
             const dataToInject = `let serviceGroups = ${JSON.stringify(serviceGroups)};`;
-            
-            // পূর্বের `let serviceGroups = ...` সেকশনটি খুঁজে বের করার প্যাটার্ন
             const pattern = /let serviceGroups = \[[\s\S]*?\];/;
-            
             const updatedHTML = fullHTML.replace(pattern, dataToInject);
-
             const textArea = document.createElement("textarea");
-            textArea.value = updatedHTML;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand("copy");
+            textArea.value = updatedHTML; document.body.appendChild(textArea);
+            textArea.select(); document.execCommand("copy");
             document.body.removeChild(textArea);
-            alert("সফলভাবে কোড কপি হয়েছে! Termux-এ গিয়ে paste করুন।");
+            alert("আপডেটেড কোড কপি হয়েছে! টার্মিনাক্সে পেস্ট করুন।");
         }
 
         function order(service) {
