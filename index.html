@@ -3,37 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ASIF SHOP | Pro Service Vault v4.5</title>
+    <title>ASIF SHOP | Ultimate Service Vault</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root { --accent: #00ffcc; --bg: #05070a; --card: #12151c; --text: #d1d5db; --font-bn: 'Hind Siliguri', sans-serif; --font-en: 'Orbitron', sans-serif; }
         body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-bn); padding-bottom: 120px; }
         
-        /* 💡 Glowing & Lighting Header */
+        /* 💡 Glowing ASIF SHOP Header */
         header { text-align: center; padding: 60px 20px; background: radial-gradient(circle at top, #002b24 0%, var(--bg) 90%); border-bottom: 1px solid #1f2937; }
         header h1 { font-family: var(--font-en); color: var(--accent); font-size: 32px; margin: 0; text-transform: uppercase; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); }
         header p { font-size: 13px; opacity: 0.7; margin-top: 10px; letter-spacing: 1px; }
 
         .container { padding: 15px; max-width: 600px; margin: 0 auto; }
-        .section-title { font-weight: 700; margin: 30px 0 15px; padding-left: 5px; font-size: 16px; color: var(--accent); text-transform: uppercase; }
+        .section-title { font-weight: 700; margin: 35px 0 15px; padding-left: 5px; font-size: 16px; color: var(--accent); text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
 
-        /* 💠 Recovery Service Grid */
+        /* 💠 Quick Service Grid */
         .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 25px 0; }
         .service-card { background: var(--card); border: 1px solid #30363d; border-radius: 15px; padding: 20px 5px; text-align: center; cursor: pointer; transition: 0.3s; }
         .service-card:active { transform: scale(0.95); background: #1c2128; border-color: var(--accent); }
         .service-card i { font-size: 32px; margin-bottom: 12px; display: block; }
         .service-card b { font-size: 10px; color: #fff; display: block; text-transform: uppercase; line-height: 1.3; }
 
-        /* 📊 Detailed Price Buttons (Icon+Text) */
-        .rate-btn { background: var(--card); border-radius: 12px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; border: 1px solid #2d333b; cursor: pointer; text-decoration: none; color: inherit; transition: 0.3s; }
-        .rate-btn:hover { border-color: var(--accent); background: rgba(0,255,204,0.03); }
-        .rate-btn i { font-size: 24px; color: var(--accent); width: 30px; text-align: center; }
+        /* 📊 List Item Style (Icon + Text) */
+        .rate-row { background: var(--card); border-radius: 15px; padding: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; border: 1px solid #2d333b; }
+        .rate-row i { font-size: 25px; color: var(--accent); width: 35px; text-align: center; }
         .rate-info b { display: block; font-size: 16px; color: #fff; margin-bottom: 4px; }
         .rate-info span { font-size: 14px; color: var(--accent); font-weight: 800; }
-        .order-tag { margin-left: auto; font-size: 10px; background: #222; padding: 5px 10px; border-radius: 6px; text-transform: uppercase; }
+        .order-btn { margin-left: auto; background: var(--accent); color: #000; border: none; padding: 8px 15px; border-radius: 8px; font-weight: 800; font-size: 12px; cursor: pointer; }
 
-        footer { text-align: center; padding: 40px 20px; font-size: 12px; opacity: 0.4; border-top: 1px solid #1f2937; margin-top: 40px; }
+        /* 📞 Contact Buttons */
+        .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .contact-btn { background: #fff; color: #000; padding: 12px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        /* 🛠️ CEO Admin Panel */
+        #admin-panel { display: none; background: #0a0a0a; border-top: 2px solid var(--accent); padding: 25px; position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 2000; border-radius: 20px 20px 0 0; }
+        .admin-input { width: 100%; padding: 12px; margin-bottom: 12px; background: #111; border: 1px solid #333; color: #fff; border-radius: 8px; }
+        .admin-trigger { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--accent); color: #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
+
+        footer { text-align: center; padding: 40px 20px; font-size: 12px; opacity: 0.5; border-top: 1px solid #1f2937; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -44,35 +52,101 @@
     </header>
 
     <div class="container">
-        <div class="section-title">📌 দ্রুত সেবা নির্বাচন করুন</div>
+        <div class="section-title"><i class="fas fa-bolt"></i> দ্রুত সেবা নির্বাচন</div>
         <div class="service-grid">
-            <div class="service-card" onclick="order('Facebook Recovery')"><i class="fab fa-facebook" style="color:#1877f2;"></i><b>Facebook<br>Recovery</b></div>
-            <div class="service-card" onclick="order('Gmail Recovery')"><i class="fab fa-google" style="color:#ea4335;"></i><b>Gmail<br>Recovery</b></div>
-            <div class="service-card" onclick="order('WhatsApp Recovery')"><i class="fab fa-whatsapp" style="color:#25d366;"></i><b>WhatsApp<br>Recovery</b></div>
+            <div class="service-card" onclick="order('Facebook')"><i class="fab fa-facebook" style="color:#1877f2;"></i><b>Facebook<br>Recovery</b></div>
+            <div class="service-card" onclick="order('Gmail')"><i class="fab fa-google" style="color:#ea4335;"></i><b>Gmail<br>Recovery</b></div>
+            <div class="service-card" onclick="order('WhatsApp')"><i class="fab fa-whatsapp" style="color:#25d366;"></i><b>WhatsApp<br>Recovery</b></div>
         </div>
 
-        <div class="section-title">📊 সম্পূর্ণ সার্ভিস রেট তালিকা</div>
-        
-        <div class="rate-btn" onclick="order('Telegram Scam Removal')"><i class="fab fa-telegram"></i><div class="rate-info"><b>Telegram Scam Removal</b><span>১৭,০০০/-</span></div><span class="order-tag">অর্ডার</span></div>
-        <div class="rate-btn" onclick="order('Instagram Suspended Fix')"><i class="fab fa-instagram"></i><div class="rate-info"><b>Instagram Suspended Fix</b><span>১,৪০০/-</span></div><span class="order-tag">অর্ডার</span></div>
-        <div class="rate-btn" onclick="order('Facebook Locked Recovery')"><i class="fab fa-facebook"></i><div class="rate-info"><b>Facebook Locked Recovery</b><span>১,৫০০/-</span></div><span class="order-tag">অর্ডার</span></div>
-        <div class="rate-btn" onclick="order('Gmail Disabled Fix')"><i class="fab fa-google"></i><div class="rate-info"><b>Gmail Disabled Fix</b><span>২,০০০/-</span></div><span class="order-tag">অর্ডার</span></div>
-        <div class="rate-btn" onclick="order('Telegram Banning (PDF)')"><i class="fas fa-file-pdf"></i><div class="rate-info"><b>Telegram Banning</b><span>৩,২০০/-</span></div><span class="order-tag">অর্ডার</span></div>
-        <div class="rate-btn" onclick="order('Dob File')"><i class="fas fa-id-card"></i><div class="rate-info"><b>Dob File</b><span>১,০০০/-</span></div><span class="order-tag">অর্ডার</span></div>
-        <div class="rate-btn" onclick="order('FB Bot (1.3M)')"><i class="fas fa-robot"></i><div class="rate-info"><b>FB Bot (1.3M)</b><span>1.3 Million</span></div><span class="order-tag">অর্ডার</span></div>
+        <div id="full-list">
+            </div>
+
+        <div class="section-title"><i class="fas fa-headset"></i> সরাসরি যোগাযোগ</div>
+        <div class="contact-box">
+            <a href="https://wa.me/8801816731602" class="contact-btn" style="background:#25d366; color:#fff;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/asif_ehbio" class="contact-btn" style="background:#0088cc; color:#fff;"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="https://m.me/186189464570441" class="contact-btn" style="background:#0084ff; color:#fff;"><i class="fab fa-messenger"></i> Messenger</a>
+            <a href="mailto:secure.technology.solutions.bd@gmail.com" class="contact-btn" style="background:#ea4335; color:#fff;"><i class="fas fa-envelope"></i> Email</a>
+        </div>
     </div>
 
-    <footer style="font-family: var(--font-en);">
-        <i class="fas fa-shield-alt"></i> WE DO NOT ASK FOR ADMIN DEALS.<br>
-        &copy; 2026 ASIF SHOP | POWERED BY NOBAB SIR. ALL RIGHTS RESERVED.
+    <div id="admin-panel">
+        <h3 style="color:var(--accent); text-align:center;">CEO অ্যাডমিন প্যানেল</h3>
+        <input type="text" id="cat-in" class="admin-input" placeholder="ক্যাটাগরি (Ex: TELEGRAM)">
+        <input type="text" id="name-in" class="admin-input" placeholder="সার্ভিসের নাম">
+        <input type="text" id="price-in" class="admin-input" placeholder="দাম">
+        <button onclick="addService()" style="width:100%; padding:15px; background:var(--accent); border:none; border-radius:10px; font-weight:800;">সার্ভিস যোগ করুন</button>
+        <button onclick="toggleAdmin()" style="width:100%; margin-top:10px; background:none; border:1px solid #333; color:#666;">বন্ধ করুন</button>
+    </div>
+
+    <div class="admin-trigger" onclick="toggleAdmin()"><i class="fas fa-user-shield"></i></div>
+
+    <footer>
+        <i class="fas fa-shield-halved"></i> WE DO NOT ASK FOR ADMIN DEALS.<br>
+        &copy; 2026 ASIF SHOP | Powered by Asif Chowdhury.
     </footer>
 
     <script>
+        // 📊 Complete Service Data Restore
+        const serviceGroups = [
+            { cat: "✈️ Telegram Rate", items: [
+                { icon: "fab fa-telegram", name: "Scam Removal", price: "17,000/-" },
+                { icon: "fas fa-robot", name: "Custom Bot", price: "3,000/-" },
+                { icon: "fas fa-code", name: "API Setup", price: "2,500/-" }
+            ]},
+            { cat: "🔸 Instagram Rate", items: [
+                { icon: "fab fa-instagram", name: "Permanent Remove", price: "37,000/-" },
+                { icon: "fas fa-user-slash", name: "Suspended Fix", price: "1,400/-" },
+                { icon: "fas fa-check-circle", name: "Meta Verify", price: "1,000/-" }
+            ]},
+            { cat: "📧 Gmail & Server", items: [
+                { icon: "fab fa-google", name: "Disabled Fix", price: "2,000/-" },
+                { icon: "fas fa-key", name: "2FA Bypass", price: "2,500/-" },
+                { icon: "fas fa-server", name: "Server Fix", price: "3,000/-" }
+            ]},
+            { cat: "⚖️ Updates & Methods", items: [
+                { icon: "fas fa-copyright", name: "Copyright Update", price: "600/-" },
+                { icon: "fas fa-ban", name: "Telegram Banning", price: "3,200/-" },
+                { icon: "fab fa-whatsapp", name: "WhatsApp Banning", price: "5,700/-" },
+                { icon: "fas fa-file-pdf", name: "Instagram Banning PDF", price: "800/-" }
+            ]},
+            { cat: "🤖 Bot Reports", items: [
+                { icon: "fas fa-robot", name: "Telegram Report", price: "3 Lakhs" },
+                { icon: "fas fa-robot", name: "Instagram Report", price: "7 Lakhs" },
+                { icon: "fas fa-users-gear", name: "FB Profile/Group", price: "1.3 Million" }
+            ]}
+        ];
+
+        function renderSite() {
+            const container = document.getElementById('full-list');
+            container.innerHTML = serviceGroups.map(group => `
+                <div class="section-title">${group.cat}</div>
+                ${group.items.map(item => `
+                    <div class="rate-row">
+                        <i class="${item.icon}"></i>
+                        <div class="rate-info"><b>${item.name}</b><span>${item.price}</span></div>
+                        <button class="order-btn" onclick="order('${item.name}')">অর্ডার</button>
+                    </div>
+                `).join('')}
+            `).join('');
+        }
+
+        function toggleAdmin() {
+            const pass = prompt("CEO পাসওয়ার্ড:");
+            if(pass === "asif2008") {
+                const p = document.getElementById('admin-panel');
+                p.style.display = p.style.display === 'block' ? 'none' : 'block';
+            } else if(pass !== null) { alert("ACCESS DENIED!"); }
+        }
+
         function order(service) {
             const phone = "8801816731602"; // আপনার নম্বর
-            const msg = `আসসালামু আলাইকুম আসিফ ভাই,\nআমি আপনার ASIF SHOP থেকে "${service}" সার্ভিসটি নিতে চাই। দয়া করে প্রসেসটি জানান।`;
+            const msg = `আসসালামু আলাইকুম আসিফ ভাই,\nআমি আপনার ASIF SHOP থেকে "${service}" সার্ভিসটি নিতে চাই।`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
+
+        renderSite();
     </script>
 </body>
 </html>
